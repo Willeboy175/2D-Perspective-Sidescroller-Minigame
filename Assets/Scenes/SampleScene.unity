@@ -467,9 +467,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2116476645}
+  cameraPos: {fileID: 894473982}
   playerSpeed: 20
   jumpHeight: 10
-  dashSpeed: 1
+  dashSpeed: 10
   dashRecharge: 1
 --- !u!61 &2116476644
 BoxCollider2D:
