@@ -18,11 +18,14 @@ public class playerMovement : MonoBehaviour
     float dashRecharge = 1f;
     float timer = 0f;
     bool touchingGround;
+    Vector3 respawnPos;
 
     // Start is called before the first frame update
     void Start()
     {
         player.GetComponent<Rigidbody2D>();
+
+        respawnPos = player.position;
 
         ResetPlayer();
     }
@@ -90,6 +93,6 @@ public class playerMovement : MonoBehaviour
 
     private void ResetPlayer()
     {
-        transform.position = new Vector3(0, 0, 0);
+        transform.position = respawnPos;
     }
 }
