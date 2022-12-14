@@ -995,7 +995,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2116476645}
-  cameraPos: {fileID: 0}
+  cameraPos: {fileID: 894473982}
   playerSpeed: 20
   jumpHeight: 6
   dashSpeed: 8
