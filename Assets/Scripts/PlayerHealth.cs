@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -18,35 +19,22 @@ public class PlayerHealth : MonoBehaviour
         player.GetComponent<Rigidbody2D>();
 
         respawnPos = player.position;
-
-        ResetPlayer();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (playerHealth <= 0)
+        if (playerHealth <= 0 || Input.GetKeyDown(KeyCode.Escape) || player.position.x > 90)
         {
-            RestartButton();
-            ResetPlayer();
+            SceneManager.LoadScene("Main menu");
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
             playerHealth += -1;
         }
-    }
-    private void ResetPlayer()
-    {
-        transform.position = respawnPos;
-    }
-
-    public void RestartButton()
-    {
-        pauseMenu.SetActive(false);
-        gameOverMenu.SetActive(true);
     }
 }
