@@ -95,7 +95,7 @@ public class playerMovement : MonoBehaviour
         touchingGround = false;
     }
 
-    private void ResetPlayer()
+    public void ResetPlayer()
     {
         transform.position = respawnPos;
     }
