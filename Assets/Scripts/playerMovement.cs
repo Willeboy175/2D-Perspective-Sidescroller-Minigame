@@ -19,6 +19,7 @@ public class playerMovement : MonoBehaviour
     float timer = 0f;
     bool touchingGround;
     Vector3 respawnPos;
+    AudioSource jumpsound;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,7 @@ public class playerMovement : MonoBehaviour
         respawnPos = player.position;
 
         ResetPlayer();
+        jumpsound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -60,6 +62,7 @@ public class playerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.W) && touchingGround == true) //Jump
         {
             player.AddForce(new Vector2(0, jumpHeight), ForceMode2D.Impulse);
+            jumpsound.Play();
         }
         
         if (Input.GetKey(KeyCode.Space) && Input.GetKey(KeyCode.D) && timer > dashRecharge) //Dash Right
