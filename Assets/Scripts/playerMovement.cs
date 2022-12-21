@@ -35,7 +35,7 @@ public class playerMovement : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        //Reset player
+        //Reset player - William strandberg
         if (Input.GetKeyDown(KeyCode.R) || transform.position.y < -11)
         {
             ResetPlayer();
@@ -46,6 +46,7 @@ public class playerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        //Movement using addforce.impulse - William Strandberg
         if (Input.GetKey(KeyCode.D) && touchingGround == true) //Move right
         {
             player.AddForce(new Vector2(playerSpeed * Time.fixedDeltaTime, 0), ForceMode2D.Impulse);
@@ -76,7 +77,7 @@ public class playerMovement : MonoBehaviour
 
     void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground")) //Ground collision check
+        if (collision.gameObject.CompareTag("Ground")|| collision.gameObject.CompareTag("Enemy")) //Ground collision check - William strandberg
         {
             touchingGround = true;
         }
