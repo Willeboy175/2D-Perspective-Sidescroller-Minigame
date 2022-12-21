@@ -15,6 +15,7 @@ public class MainMenu : MonoBehaviour
         MainMenuButton();
     }
 
+    //Selects main menu - William Strandberg
     public void MainMenuButton()
     {
         mainMenu.SetActive(true);
@@ -22,6 +23,7 @@ public class MainMenu : MonoBehaviour
         quitMenu.SetActive(false);
     }
 
+    //Selects level Menu - Strandberg
     public void LevelMenuButton()
     {
         mainMenu.SetActive(false);
@@ -29,17 +31,21 @@ public class MainMenu : MonoBehaviour
         quitMenu.SetActive(false);
     }
 
+    //Selects quit menu - Strandberg
     public void QuitMenuButton()
     {
         mainMenu.SetActive(false);
         levelMenu.SetActive(false);
         quitMenu.SetActive(true);
     }
+
+    //Loads level 1 - Strandberg
     public void Level1Button()
     {
-        SceneManager.LoadScene("Level-1");
+        SceneManager.LoadScene("Level 1");
     }
 
+    //Exit game function - Strandberg
     public void QuitGameButton()
     {
         Application.Quit();
