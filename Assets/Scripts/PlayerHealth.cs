@@ -7,8 +7,10 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     Rigidbody2D player;
     [SerializeField]
-    int playerHealth = 5;
+    int playerHealth = 3;
     Vector3 respawnPos;
+    public GameObject pauseMenu;
+    public GameObject gameOverMenu;
 
     // Start is called before the first frame update
     void Start()
@@ -25,8 +27,8 @@ public class PlayerHealth : MonoBehaviour
     {
         if (playerHealth <= 0)
         {
+            RestartButton();
             ResetPlayer();
-            playerHealth = 5;
         }
     }
 
@@ -40,5 +42,11 @@ public class PlayerHealth : MonoBehaviour
     private void ResetPlayer()
     {
         transform.position = respawnPos;
+    }
+
+    public void RestartButton()
+    {
+        pauseMenu.SetActive(false);
+        gameOverMenu.SetActive(true);
     }
 }
